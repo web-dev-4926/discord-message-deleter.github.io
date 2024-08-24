@@ -31,7 +31,7 @@
                 <input id="token" type="password" class="form-control" oninput="updateToken(event)" />
             </div>
             <div class="col-md-6">
-                <label for="user-id">Your User ID:</label>
+                <label for="user-id">User ID:</label>
                 <input id="user-id" type="text" class="form-control" oninput="updateUserId(event)" />
             </div>
             <div class="col-md-6">
@@ -96,7 +96,7 @@
             const filteredMessages = messages.filter((message) => message.author.id === userId);
 
             if (!filteredMessages.length) {
-                log('Failed to find messages sent by you, attempting to find more messages', 'error');
+                log(`Failed to find messages sent by (${userId}), attempting to find more messages`, 'error');
                 await sleep(2500);
                 return await deleteMessages(messages[messages.length - 1].id);
             }
